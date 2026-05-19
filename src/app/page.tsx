@@ -3,6 +3,7 @@ import { Display } from "@/components/ui/Display";
 import { Mono } from "@/components/ui/Mono";
 import { Section } from "@/components/ui/Section";
 import { Footer } from "@/components/landing/Footer";
+import { HeroChatSequence } from "@/components/landing/HeroChatSequence";
 import { Leaderboard } from "@/components/landing/Leaderboard";
 import { Pricing } from "@/components/landing/Pricing";
 import { WaitlistForm } from "@/components/landing/WaitlistForm";
@@ -43,25 +44,32 @@ export default function Home() {
         <Section>
           <Container>
             <Mono>01 — tempoly · 2026</Mono>
-            <Display.One className="mt-6">
-              Te citan{" "}
-              <span className="text-[var(--color-success)]">
-                o no existes
-              </span>
-              .
-            </Display.One>
-            <p className="mt-8 max-w-2xl text-lg text-[var(--color-fg-muted)] md:text-xl">
-              Tempoly va a medir cómo apareces en ChatGPT, Claude, Perplexity y
-              Gemini cuando tu cliente B2B hace la pregunta. Arrancamos en
-              Ecuador, sector legal, julio 2026.
-            </p>
-            <div id="waitlist" className="mt-10">
-              <WaitlistForm variant="hero" />
+            <div className="mt-6 grid gap-12 md:grid-cols-2 md:gap-16 md:items-start">
+              <div>
+                <Display.One>
+                  Te citan{" "}
+                  <span className="text-[var(--color-success)]">
+                    o no existes
+                  </span>
+                  .
+                </Display.One>
+                <p className="mt-8 max-w-2xl text-lg text-[var(--color-fg-muted)] md:text-xl">
+                  Tempoly va a medir cómo apareces en ChatGPT, Claude,
+                  Perplexity y Gemini cuando tu cliente B2B hace la pregunta.
+                  Arrancamos en Ecuador, sector legal, julio 2026.
+                </p>
+                <div id="waitlist" className="mt-10">
+                  <WaitlistForm variant="hero" />
+                </div>
+                <p className="mt-4 text-sm text-[var(--color-fg-subtle)]">
+                  Arrancamos con firmas legales tech en Ecuador. Avísanos si
+                  quieres tu industria primero.
+                </p>
+              </div>
+              <div className="md:pt-2">
+                <HeroChatSequence />
+              </div>
             </div>
-            <p className="mt-4 text-sm text-[var(--color-fg-subtle)]">
-              Arrancamos con firmas legales tech en Ecuador. Avísanos si
-              quieres tu industria primero.
-            </p>
           </Container>
         </Section>
 
