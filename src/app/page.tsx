@@ -51,9 +51,9 @@ export default function Home() {
               .
             </Display.One>
             <p className="mt-8 max-w-2xl text-lg text-[var(--color-fg-muted)] md:text-xl">
-              Tempoly mide cómo apareces en ChatGPT, Claude, Perplexity y Gemini
-              cuando un cliente busca a alguien como tú. Si no estás citado, no
-              estás en la conversación.
+              Tempoly va a medir cómo apareces en ChatGPT, Claude, Perplexity y
+              Gemini cuando tu cliente B2B hace la pregunta. Arrancamos en
+              Ecuador, sector legal, julio 2026.
             </p>
             <div id="waitlist" className="mt-10">
               <WaitlistForm variant="hero" />
@@ -76,17 +76,27 @@ export default function Home() {
                 </Display.Two>
               </div>
               <p className="max-w-md text-[var(--color-fg-muted)]">
-                Diez firmas legales tech en Ecuador, rankeadas por cuántas veces
-                las IAs las mencionan al responder preguntas de compradores
-                reales.
+                Diez slots para firmas legales tech en Ecuador, rankeadas por
+                cuántas veces las IAs las mencionen al responder preguntas de
+                compradores reales.
               </p>
             </div>
-            <div className="mt-10">
+            <div className="mt-10 border border-[var(--color-warn)]/40 bg-[var(--color-warn)]/[0.06] px-4 py-3">
+              <p className="font-(family-name:--font-mono) text-[0.78rem] uppercase tracking-[0.16em] text-[var(--color-warn)]">
+                Preview · mockup
+              </p>
+              <p className="mt-2 text-sm text-[var(--color-fg-muted)]">
+                Tempoly empieza a medir en producción en julio 2026. La data
+                abajo es un mockup ilustrativo del producto, no representa
+                firmas reales.
+              </p>
+            </div>
+            <div className="mt-6">
               <Leaderboard />
             </div>
             <p className="mt-4 text-sm text-[var(--color-fg-subtle)]">
-              Sample data · La versión live mide 15 queries semanales contra 4
-              motores y publica todo en abierto.
+              La versión live va a medir 15 queries semanales contra 4 motores
+              y publicar todo en abierto.
             </p>
           </Container>
         </Section>
@@ -142,7 +152,7 @@ export default function Home() {
                 {
                   n: "02",
                   title: "Las corremos semanal",
-                  body: "Cada semana, los 4 motores grandes responden esas preguntas. Capturamos quién es citado y en qué posición.",
+                  body: "Cada semana, vamos a correr esas preguntas en los 4 motores grandes. Capturamos quién es citado y en qué posición.",
                 },
                 {
                   n: "03",
@@ -190,9 +200,10 @@ export default function Home() {
                 Únete a la lista. Te avisamos cuando abramos tu industria.
               </Display.Two>
               <p className="mt-6 text-[var(--color-fg-muted)] md:text-lg">
-                Estamos cerrando el primer leaderboard de Ecuador. El segundo
-                país y la segunda industria se abren cuando haya demanda real.
-                Decirnos cuál te interesa nos ayuda a priorizar.
+                Estamos abriendo la lista para el primer leaderboard — Ecuador,
+                sector legal, julio 2026. El segundo país y la segunda
+                industria se abren cuando haya demanda real. Decirnos cuál te
+                interesa nos ayuda a priorizar.
               </p>
               <div className="mt-10">
                 <WaitlistForm variant="inline" />

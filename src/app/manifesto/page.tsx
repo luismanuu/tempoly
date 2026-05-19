@@ -158,17 +158,20 @@ function Section3() {
     <section className="space-y-5">
       <H2 n="03">Lo que medimos</H2>
       <P>
-        Tres números por empresa por semana. Citation rate: de las preguntas
-        que tu comprador hace, ¿en cuántas apareces? Share of voice: cuando
-        apareces, ¿qué fracción del total de menciones tienes vs. tus
-        competidores? Drift: ¿cómo cambió eso comparado con la semana pasada?
+        Vamos a medir tres números por empresa por semana. Citation rate: de
+        las preguntas que tu comprador hace, ¿en cuántas apareces? Share of
+        voice: cuando apareces, ¿qué fracción del total de menciones tienes
+        vs. tus competidores? Drift: ¿cómo cambió eso comparado con la semana
+        pasada?
       </P>
       <P>
-        Las preguntas son públicas y reales — quince queries iniciales,
-        validadas con compradores de la industria. Los motores son los cuatro
-        que importan hoy: ChatGPT, Claude, Perplexity, Gemini. Las respuestas
-        crudas se archivan. Si no estás de acuerdo con cómo te medimos, puedes
-        leer el log.
+        Las preguntas van a ser públicas — quince queries iniciales, redactadas
+        con base en research del comportamiento del comprador. Antes de
+        publicar el primer leaderboard, vamos a validarlas con tres a cinco
+        compradores reales de la industria. Los motores son los cuatro que
+        importan hoy: ChatGPT, Claude, Perplexity, Gemini. Las respuestas
+        crudas se archivan en cada corrida y publicamos el log. Si no estás de
+        acuerdo con cómo te medimos, lo puedes leer.
       </P>
     </section>
   );
@@ -222,10 +225,10 @@ function Section6() {
       <H2 n="06">Cómo empezamos</H2>
       <P>
         Ecuador, sector legal, quince queries, dos motores. Diez firmas
-        rankeadas. Un leaderboard público que se actualiza semana a semana. Si
-        tu firma debería estar y no está, escríbenos. Si tu industria no es
-        legal o tu país no es Ecuador, súmate a la lista y dinos cuál
-        priorizar.
+        rankeadas. Un leaderboard público que arranca actualizándose en julio
+        2026 y mantiene cadencia semanal. Si tu firma debería estar y no está,
+        escríbenos. Si tu industria no es legal o tu país no es Ecuador,
+        súmate a la lista y dinos cuál priorizar.
       </P>
       <P>
         La métrica es nueva pero el juego es viejo: el que se queda parado

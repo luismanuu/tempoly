@@ -8,14 +8,14 @@ export type LeaderboardRow = {
   note?: string;
 };
 
-// Datos de muestra para v0: posiciones plausibles basadas en presencia digital
-// pública. NO son citation rates medidas todavía — son ilustrativos para mostrar
-// el formato de leaderboard. Se reemplazan cuando el worker arranque.
+// Datos de muestra ilustrativos para v0. NO representan firmas reales — son
+// placeholders genéricos para mostrar el formato de leaderboard. Se reemplazan
+// con mediciones reales cuando el worker arranque (julio 2026).
 export const LEGAL_ECUADOR: LeaderboardRow[] = [
   {
     rank: 1,
-    company: "Pérez Bustamante & Ponce",
-    website: "pbplaw.com",
+    company: "Firma A",
+    website: "—",
     citationRateChatgpt: 0.73,
     citationRateClaude: 0.67,
     weekDelta: 2,
@@ -23,8 +23,8 @@ export const LEGAL_ECUADOR: LeaderboardRow[] = [
   },
   {
     rank: 2,
-    company: "Bustamante Fabara",
-    website: "bustamantefabara.com",
+    company: "Firma B",
+    website: "—",
     citationRateChatgpt: 0.6,
     citationRateClaude: 0.53,
     weekDelta: 1,
@@ -32,8 +32,8 @@ export const LEGAL_ECUADOR: LeaderboardRow[] = [
   },
   {
     rank: 3,
-    company: "Coronel & Pérez",
-    website: "coronelyperez.com",
+    company: "Firma C",
+    website: "—",
     citationRateChatgpt: 0.53,
     citationRateClaude: 0.6,
     weekDelta: -1,
@@ -41,8 +41,8 @@ export const LEGAL_ECUADOR: LeaderboardRow[] = [
   },
   {
     rank: 4,
-    company: "Falconi Puig Abogados",
-    website: "falconipuig.com",
+    company: "Firma D",
+    website: "—",
     citationRateChatgpt: 0.47,
     citationRateClaude: 0.4,
     weekDelta: 0,
@@ -50,8 +50,8 @@ export const LEGAL_ECUADOR: LeaderboardRow[] = [
   },
   {
     rank: 5,
-    company: "Tobar ZVS",
-    website: "tobarzvs.com",
+    company: "Firma E",
+    website: "—",
     citationRateChatgpt: 0.4,
     citationRateClaude: 0.47,
     weekDelta: 3,
@@ -59,8 +59,8 @@ export const LEGAL_ECUADOR: LeaderboardRow[] = [
   },
   {
     rank: 6,
-    company: "Almeida Guzmán",
-    website: "almeidaguzman.com",
+    company: "Firma F",
+    website: "—",
     citationRateChatgpt: 0.33,
     citationRateClaude: 0.27,
     weekDelta: -2,
@@ -68,8 +68,8 @@ export const LEGAL_ECUADOR: LeaderboardRow[] = [
   },
   {
     rank: 7,
-    company: "Lexis",
-    website: "lexis.com.ec",
+    company: "Firma G",
+    website: "—",
     citationRateChatgpt: 0.27,
     citationRateClaude: 0.2,
     weekDelta: 0,
@@ -77,8 +77,8 @@ export const LEGAL_ECUADOR: LeaderboardRow[] = [
   },
   {
     rank: 8,
-    company: "LexValor",
-    website: "lexvalor.com.ec",
+    company: "Firma H",
+    website: "—",
     citationRateChatgpt: 0.2,
     citationRateClaude: 0.27,
     weekDelta: 1,
@@ -86,16 +86,16 @@ export const LEGAL_ECUADOR: LeaderboardRow[] = [
   },
   {
     rank: 9,
-    company: "Altius Lexia",
-    website: "altiuslexia.com",
+    company: "Firma I",
+    website: "—",
     citationRateChatgpt: 0.13,
     citationRateClaude: 0.13,
     weekDelta: 4,
-    note: "Anchor — subiendo desde semana 0",
+    note: "Subiendo desde semana 0",
   },
   {
     rank: 10,
-    company: "DataLegal Ecuador",
+    company: "Firma J",
     website: "—",
     citationRateChatgpt: 0.07,
     citationRateClaude: 0.13,

@@ -58,7 +58,6 @@ export function Leaderboard() {
           </thead>
           <tbody>
             {LEGAL_ECUADOR.map((row) => {
-              const anchor = row.company === "Altius Lexia";
               return (
                 <tr
                   key={row.rank}
@@ -68,15 +67,7 @@ export function Leaderboard() {
                     {String(row.rank).padStart(2, "0")}
                   </td>
                   <td className="px-5 py-3">
-                    <div
-                      className={
-                        anchor
-                          ? "text-[var(--color-success)]"
-                          : "text-[var(--color-fg)]"
-                      }
-                    >
-                      {row.company}
-                    </div>
+                    <div className="text-[var(--color-fg)]">{row.company}</div>
                     <div className="text-[0.72rem] text-[var(--color-fg-subtle)]">
                       {row.website}
                     </div>
