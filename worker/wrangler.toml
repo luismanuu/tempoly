@@ -1,0 +1,23 @@
+# Tempoly measurement Worker — CONFIGURED BUT NOT DEPLOYED.
+#
+# Do NOT `wrangler deploy` and do NOT set secrets until the CEO authorizes API
+# spend. The cron below would, once deployed AND with MEASUREMENT_LIVE=1 set,
+# run the weekly measurement. Until then the handler is inert (see src/index.ts).
+
+name = "tempoly-measurement"
+main = "src/index.ts"
+compatibility_date = "2026-05-01"
+compatibility_flags = ["nodejs_compat"]
+
+# Mondays 09:00 UTC. Inert until deployed + MEASUREMENT_LIVE=1.
+[triggers]
+crons = ["0 9 * * 1"]
+
+# MEASUREMENT_LIVE is intentionally NOT set here — leaving it unset keeps the
+# Worker inert. Set it to "1" (and deploy) only on CEO go.
+# [vars]
+# MEASUREMENT_LIVE = "1"
+
+# Secrets are set with `wrangler secret put <NAME>` at go time — never committed.
+# Required: OPENAI_API_KEY, ANTHROPIC_API_KEY, PERPLEXITY_API_KEY, GEMINI_API_KEY,
+#           CF_AI_GATEWAY_URL, NEXT_PUBLIC_SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY
