@@ -11,6 +11,8 @@
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
     "test:watch": "vitest",
+    "seed:measurement": "node --import ./scripts/register-ts.mjs scripts/seed-measurement.mjs",
+    "measure": "node --import ./scripts/register-ts.mjs scripts/measure.mjs",
     "test:coverage": "vitest run --coverage"
   },
   "dependencies": {
