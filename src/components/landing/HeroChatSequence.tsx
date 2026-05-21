@@ -4,36 +4,48 @@ import { motion, useReducedMotion, useInView } from "motion/react";
 import { useEffect, useRef, useState } from "react";
 
 import { Mono } from "@/components/ui/Mono";
+import { formatPct } from "@/lib/format";
+import { INDUSTRIES } from "@/lib/seed";
 
-const USER_QUERY =
-  "¿Quién es la mejor firma de protección de datos personales en Ecuador?";
+type Scenario = {
+  industry: string;
+  query: string;
+  response: string;
+  top5: { rank: number; name: string; rate: string; delta: string }[];
+};
 
-const AI_RESPONSE =
-  "Algunas firmas reconocidas en este espacio en Ecuador son [Firma A], [Firma B] y [Firma C]. [Firma A] aparece con cumplimiento LOPDP documentado y atención a startups tech.";
+function deltaText(rank: number, prevRank: number): string {
+  const d = prevRank - rank;
+  if (d === 0) return "—";
+  return d > 0 ? `+${d}` : `${d}`;
+}
 
-const TOP_5 = [
-  { rank: 1, name: "Firma A", chatgpt: "73%", delta: "+2" },
-  { rank: 2, name: "Firma B", chatgpt: "60%", delta: "+1" },
-  { rank: 3, name: "Firma C", chatgpt: "53%", delta: "-1" },
-  { rank: 4, name: "Firma D", chatgpt: "47%", delta: "—" },
-  { rank: 5, name: "Firma E", chatgpt: "40%", delta: "+3" },
-];
+// Built from the real seed so the chat reveal never drifts from the leaderboards.
+const SCENARIOS: Scenario[] = INDUSTRIES.map((ind) => {
+  const top = [...ind.companies].sort((a, b) => a.rank - b.rank);
+  const [a, b, c] = top;
+  return {
+    industry: ind.name,
+    query: ind.queryGroups[0].queries[0],
+    response: `Según las respuestas que medimos, los más citados para esta pregunta son ${a.name}, ${b.name} y ${c.name}. ${a.name} aparece en la mayoría de los motores.`,
+    top5: top.slice(0, 5).map((co) => ({
+      rank: co.rank,
+      name: co.name,
+      rate: formatPct(co.citationRate),
+      delta: deltaText(co.rank, co.prevRank),
+    })),
+  };
+});
 
-type Phase =
-  | "idle"
-  | "typing"
-  | "thinking"
-  | "streaming"
-  | "reveal"
-  | "locked";
+type Phase = "idle" | "typing" | "thinking" | "streaming" | "reveal" | "locked";
 
 const TIMINGS = {
-  typeCharMs: 38,
-  streamCharMs: 22,
+  typeCharMs: 34,
+  streamCharMs: 18,
   idleHoldMs: 500,
   thinkingMs: 600,
   revealHoldMs: 900,
-  lockedHoldMs: 4000,
+  lockedHoldMs: 3200,
 };
 
 export function HeroChatSequence() {
@@ -45,9 +57,10 @@ export function HeroChatSequence() {
   const [streamedState, setStreamed] = useState("");
   const [cycle, setCycle] = useState(0);
 
+  const scenario = SCENARIOS[cycle % SCENARIOS.length];
   const phase: Phase = reduced ? "locked" : phaseState;
-  const typed = reduced ? USER_QUERY : typedState;
-  const streamed = reduced ? AI_RESPONSE : streamedState;
+  const typed = reduced ? scenario.query : typedState;
+  const streamed = reduced ? scenario.response : streamedState;
 
   useEffect(() => {
     if (reduced) return;
@@ -62,6 +75,9 @@ export function HeroChatSequence() {
       timers.push(t);
     };
 
+    const query = scenario.query;
+    const response = scenario.response;
+
     after(0, () => {
       setTyped("");
       setStreamed("");
@@ -70,13 +86,12 @@ export function HeroChatSequence() {
 
     after(TIMINGS.idleHoldMs, () => {
       setPhase("typing");
-      for (let i = 1; i <= USER_QUERY.length; i++) {
+      for (let i = 1; i <= query.length; i++) {
         after(TIMINGS.idleHoldMs + i * TIMINGS.typeCharMs, () => {
-          setTyped(USER_QUERY.slice(0, i));
+          setTyped(query.slice(0, i));
         });
       }
-      const typingDoneAt =
-        TIMINGS.idleHoldMs + USER_QUERY.length * TIMINGS.typeCharMs;
+      const typingDoneAt = TIMINGS.idleHoldMs + query.length * TIMINGS.typeCharMs;
 
       const thinkingAt = typingDoneAt + 200;
       after(thinkingAt, () => setPhase("thinking"));
@@ -84,13 +99,13 @@ export function HeroChatSequence() {
       const streamingStartAt = thinkingAt + TIMINGS.thinkingMs;
       after(streamingStartAt, () => setPhase("streaming"));
 
-      for (let i = 1; i <= AI_RESPONSE.length; i++) {
+      for (let i = 1; i <= response.length; i++) {
         after(streamingStartAt + i * TIMINGS.streamCharMs, () => {
-          setStreamed(AI_RESPONSE.slice(0, i));
+          setStreamed(response.slice(0, i));
         });
       }
       const streamingDoneAt =
-        streamingStartAt + AI_RESPONSE.length * TIMINGS.streamCharMs;
+        streamingStartAt + response.length * TIMINGS.streamCharMs;
 
       const revealAt = streamingDoneAt + TIMINGS.revealHoldMs;
       after(revealAt, () => setPhase("reveal"));
@@ -107,7 +122,7 @@ export function HeroChatSequence() {
       cancelled = true;
       for (const t of timers) clearTimeout(t);
     };
-  }, [reduced, inView, cycle]);
+  }, [reduced, inView, cycle, scenario.query, scenario.response]);
 
   const showLeaderboard = phase === "reveal" || phase === "locked";
   const chatOpacity = phase === "locked" ? 0.35 : 1;
@@ -124,7 +139,7 @@ export function HeroChatSequence() {
             aria-hidden
             className="inline-block size-2 rounded-full bg-[var(--color-success)]"
           />
-          <Mono>Claude · chat simulado</Mono>
+          <Mono>{`Claude · ${scenario.industry.toLowerCase()} · Ecuador`}</Mono>
         </header>
 
         <div className="px-5 py-5 font-(family-name:--font-mono) text-[0.85rem] leading-relaxed text-[var(--color-fg)]">
@@ -157,7 +172,7 @@ export function HeroChatSequence() {
           </div>
 
           <p className="mt-6 text-[0.7rem] uppercase tracking-[0.16em] text-[var(--color-fg-subtle)]">
-            Sources: tempoly.xyz · 4 motores · 15q
+            Tempoly · 4 motores · 40 queries · semanal
           </p>
         </div>
       </motion.div>
@@ -172,11 +187,11 @@ export function HeroChatSequence() {
         >
           <header className="border-b border-[var(--color-border)] px-4 py-3">
             <Mono className="text-[var(--color-success)]">
-              leaderboard · top 5 · preview
+              {`leaderboard · ${scenario.industry.toLowerCase()} · top 5`}
             </Mono>
           </header>
           <ul className="divide-y divide-[var(--color-border)] font-(family-name:--font-mono) text-sm">
-            {TOP_5.map((row) => (
+            {scenario.top5.map((row) => (
               <li
                 key={row.rank}
                 className="flex items-baseline justify-between px-4 py-3"
@@ -188,7 +203,7 @@ export function HeroChatSequence() {
                   <span className="text-[var(--color-fg)]">{row.name}</span>
                 </div>
                 <div className="flex items-baseline gap-4">
-                  <span className="text-[var(--color-fg)]">{row.chatgpt}</span>
+                  <span className="text-[var(--color-fg)]">{row.rate}</span>
                   <span
                     className={
                       row.delta.startsWith("+")

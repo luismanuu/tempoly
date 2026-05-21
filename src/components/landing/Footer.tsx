@@ -11,8 +11,10 @@ export function Footer() {
               Tempoly
             </div>
             <p className="mt-2 max-w-sm text-sm text-[var(--color-fg-muted)]">
-              Leaderboards públicos de citaciones AI por industria y país.
-              Empezamos en Ecuador.
+              Analítica pública de citaciones AI y consultoría de visibilidad.
+              Medimos qué empresas ecuatorianas aparecen en ChatGPT, Claude,
+              Perplexity y Gemini — y preparamos a las que quieren aparecer para
+              la economía de los agentes.
             </p>
           </div>
 
@@ -22,15 +24,33 @@ export function Footer() {
           >
             <a
               className="text-[var(--color-fg-muted)] hover:text-[var(--color-fg)]"
+              href="/leaderboards"
+            >
+              Leaderboards
+            </a>
+            <a
+              className="text-[var(--color-fg-muted)] hover:text-[var(--color-fg)]"
+              href="/servicios"
+            >
+              Servicios
+            </a>
+            <a
+              className="text-[var(--color-fg-muted)] hover:text-[var(--color-fg)]"
+              href="/metodologia"
+            >
+              Metodología
+            </a>
+            <a
+              className="text-[var(--color-fg-muted)] hover:text-[var(--color-fg)]"
               href="/manifesto"
             >
               Manifesto
             </a>
             <a
               className="text-[var(--color-fg-muted)] hover:text-[var(--color-fg)]"
-              href="/leaderboards/legal-ecuador"
+              href="/contacto"
             >
-              Leaderboard legal · Ecuador
+              Contacto
             </a>
             <a
               className="text-[var(--color-fg-muted)] hover:text-[var(--color-fg)]"

@@ -10,5 +10,8 @@ export function resendClient(): Resend {
   return cached;
 }
 
-export const WAITLIST_FROM =
-  process.env.WAITLIST_FROM ?? "Tempoly <hola@tempoly.xyz>";
+export const CONTACT_FROM =
+  process.env.CONTACT_FROM ?? "Tempoly <hola@tempoly.xyz>";
+
+// Where internal lead notifications land.
+export const CONTACT_NOTIFY = process.env.CONTACT_NOTIFY ?? "hola@tempoly.xyz";
