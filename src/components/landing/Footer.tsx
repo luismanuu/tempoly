@@ -11,9 +11,10 @@ export function Footer() {
               Tempoly
             </div>
             <p className="mt-2 max-w-sm text-sm text-[var(--color-fg-muted)]">
-              Analítica pública de citaciones AI por industria. Medimos qué
-              empresas ecuatorianas aparecen en ChatGPT, Claude, Perplexity y
-              Gemini — y ayudamos a las que quieren aparecer.
+              Analítica pública de citaciones AI y consultoría de visibilidad.
+              Medimos qué empresas ecuatorianas aparecen en ChatGPT, Claude,
+              Perplexity y Gemini — y preparamos a las que quieren aparecer para
+              la economía de los agentes.
             </p>
           </div>
 

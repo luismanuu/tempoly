@@ -34,6 +34,7 @@ export default function ManifestoPage() {
                 <Section3 />
                 <Section4 />
                 <Section5 />
+                <SectionAgentes />
                 <Section6 />
               </div>
 
@@ -186,10 +187,39 @@ function Section5() {
   );
 }
 
+function SectionAgentes() {
+  return (
+    <section className="space-y-5">
+      <H2 n="06">La próxima ola: la economía de los agentes</H2>
+      <P>
+        Hasta aquí hablamos de humanos preguntándole a la IA. Pero la IA no se
+        va a quedar recomendando. Lo que viene son agentes que comparan,
+        negocian y compran en nombre de tu cliente — sin que tu cliente abra una
+        sola pestaña. Se está construyendo la infraestructura para que
+        transaccionen solos: una economía de agentes.
+      </P>
+      <P>
+        Cuando eso pase, la regla se endurece. Hoy, si no te citan, pierdes una
+        recomendación. Mañana, si un agente no puede leer tu catálogo, entender
+        tu oferta y confiar en tus datos, no va a encontrarte — y le va a comprar
+        a quien sí es legible. La invisibilidad deja de costar leads: empieza a
+        costar ventas.
+      </P>
+      <P>
+        No medimos compras de agentes — nadie las mide todavía, porque la ola
+        apenas empieza. Lo que hacemos es prepararte para ella desde lo que sí es
+        medible hoy: ser visible y citado en los modelos. El que llega legible y
+        confiable antes de que los agentes empiecen a comprar define el precio de
+        entrada para el resto.
+      </P>
+    </section>
+  );
+}
+
 function Section6() {
   return (
     <section className="space-y-5">
-      <H2 n="06">Dónde estamos hoy</H2>
+      <H2 n="07">Dónde estamos hoy</H2>
       <P>
         Tres industrias medidas en Ecuador: universidades, bancos y hospitales.
         Cerca de cuarenta preguntas por industria, cuatro motores, cadencia

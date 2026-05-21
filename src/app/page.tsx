@@ -45,9 +45,11 @@ export default function Home() {
                   <span className="text-[var(--color-success)]">o no existes</span>.
                 </Display.One>
                 <p className="mt-8 max-w-2xl text-lg text-[var(--color-fg-muted)] md:text-xl">
-                  Medimos qué empresas ecuatorianas aparecen cuando un cliente le
-                  pregunta a ChatGPT, Claude, Perplexity o Gemini. Y ayudamos a
-                  las que quieren aparecer.
+                  Hoy tus clientes le preguntan a ChatGPT, Claude, Perplexity y
+                  Gemini a quién elegir. Pronto, los agentes de IA van a comparar
+                  y comprar por ellos. En ambos casos vale la misma regla: si la
+                  IA no te ve, no existes. Medimos dónde apareces — y te hacemos
+                  visible.
                 </p>
                 <div className="mt-10 flex flex-wrap gap-4">
                   <LinkButton href="/contacto" size="lg">
@@ -88,6 +90,41 @@ export default function Home() {
             <div className="mt-10">
               <IndustrySwitcher industries={INDUSTRIES} />
             </div>
+          </Container>
+        </Section>
+
+        {/* La economía de los agentes — agentic commerce (thesis / forward-looking) */}
+        <Section divider id="agentes">
+          <Container>
+            <Mono>lo que viene</Mono>
+            <Display.Two className="mt-4 max-w-3xl">
+              Los agentes ya no solo recomiendan. Empiezan a comprar.
+            </Display.Two>
+            <div className="mt-8 grid max-w-3xl gap-5 text-[var(--color-fg-muted)] md:text-lg">
+              <p>
+                Hoy la IA recomienda y un humano decide. Lo que viene es
+                distinto: los agentes de IA van a comparar, elegir y comprar en
+                nombre de tu cliente. Se está construyendo la infraestructura
+                para que transaccionen solos — una economía de agentes.
+              </p>
+              <p>
+                En esa economía, lo que no es legible para un agente no existe.
+                Si tus productos, tus precios y tus servicios no están descritos
+                de forma que un agente los entienda y confíe en ellos, no va a
+                encontrarte — y le va a comprar a otro. La góndola deja de ser
+                visual: pasa a ser una conversación entre máquinas.
+              </p>
+              <p>
+                Todavía nadie tiene datos de compras hechas por agentes —
+                nosotros tampoco, porque la ola apenas empieza. Pero la dirección
+                es clara, y la ventaja es de quien se prepara antes. Tempoly te
+                hace visible y citado hoy, y elegible por los agentes cuando esa
+                ola llegue.
+              </p>
+            </div>
+            <p className="mt-8 font-(family-name:--font-mono) text-[0.78rem] uppercase tracking-[0.18em] text-[var(--color-fg-subtle)]">
+              Lo que viene · 2026→
+            </p>
           </Container>
         </Section>
 

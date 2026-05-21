@@ -66,8 +66,10 @@ export default function ServiciosPage() {
               Medimos, y después te ayudamos a aparecer.
             </Display.One>
             <p className="mt-6 max-w-2xl text-lg text-[var(--color-fg-muted)]">
-              Los leaderboards son la prueba. El trabajo real es mover tu
-              empresa hacia arriba: que cuando tu cliente le pregunte a una IA,
+              Tempoly es consultoría de visibilidad en IA: GEO, AEO y estrategia
+              de marketing para la era de los agentes. Los leaderboards son la
+              prueba; el trabajo real es mover tu empresa hacia arriba — que
+              cuando tu cliente, o el agente que compra por él, consulte a la IA,
               tu nombre esté en la respuesta. Trabajamos en tres frentes.
             </p>
           </Container>
