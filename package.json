@@ -11,10 +11,13 @@
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
     "test:watch": "vitest",
+    "seed:measurement": "node --import ./scripts/register-ts.mjs scripts/seed-measurement.mjs",
+    "measure": "node --import ./scripts/register-ts.mjs scripts/measure.mjs",
     "test:coverage": "vitest run --coverage"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.45.4",
+    "decimal.js": "^10.6.0",
     "motion": "^12.39.0",
     "next": "16.2.6",
     "react": "19.2.4",
