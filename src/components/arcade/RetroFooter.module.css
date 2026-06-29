@@ -1,0 +1,140 @@
+.footer {
+  background: var(--bg-deep);
+  border-top: 1px solid var(--border-soft);
+}
+
+.inner {
+  width: min(100% - 2.5rem, 1200px);
+  margin-inline: auto;
+  padding-block: clamp(2.75rem, 5vw, 4rem);
+}
+
+.top {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(2rem, 4vw, 3rem);
+}
+
+@media (min-width: 720px) {
+  .top {
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+}
+
+.brand {
+  max-width: 32ch;
+}
+
+.wordmark {
+  margin: 0;
+  display: flex;
+  gap: 0.05em;
+  font-family: var(--font-pixel);
+  font-weight: 700;
+  font-size: clamp(2.25rem, 7vw, 3rem);
+  line-height: 1;
+  letter-spacing: 0.02em;
+}
+
+.wordmark span[data-c="magenta"] {
+  color: var(--accent-magenta);
+}
+.wordmark span[data-c="cyan"] {
+  color: var(--accent-cyan);
+}
+.wordmark span[data-c="lime"] {
+  color: var(--accent-lime);
+}
+.wordmark span[data-c="amber"] {
+  color: var(--accent-amber);
+}
+.wordmark span[data-c="primary"] {
+  color: var(--text-primary);
+}
+
+.tagline {
+  margin: 1rem 0 0;
+  font-family: var(--font-tech);
+  font-weight: 500;
+  font-size: 0.82rem;
+  letter-spacing: 0.02em;
+  color: var(--text-secondary);
+}
+
+.cols {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(2rem, 6vw, 4rem);
+}
+
+.col {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+
+.colHead {
+  font-family: var(--font-tech);
+  font-weight: 700;
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  color: var(--text-muted);
+}
+
+.colLink {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  text-decoration: none;
+  width: fit-content;
+  transition: color 0.16s var(--ease-out-quint);
+}
+
+.colLink:hover,
+.colLink:focus-visible {
+  color: var(--accent-cyan);
+}
+
+.bar {
+  margin-top: clamp(2rem, 4vw, 3rem);
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border-soft);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.copy {
+  font-family: var(--font-tech);
+  font-weight: 500;
+  font-size: 0.74rem;
+  letter-spacing: 0.02em;
+  color: var(--text-muted);
+}
+
+.dots {
+  display: inline-flex;
+  gap: 0.4rem;
+}
+
+.dots span {
+  width: 0.65rem;
+  height: 0.65rem;
+}
+
+.dots span[data-c="magenta"] {
+  background: var(--accent-magenta);
+}
+.dots span[data-c="cyan"] {
+  background: var(--accent-cyan);
+}
+.dots span[data-c="lime"] {
+  background: var(--accent-lime);
+}
+.dots span[data-c="amber"] {
+  background: var(--accent-amber);
+}

@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Container } from "@/components/ui/Container";
 import { Display } from "@/components/ui/Display";
 import { Mono } from "@/components/ui/Mono";
@@ -16,12 +17,12 @@ export default function LegalEcuadorPage() {
     <>
       <header className="border-b border-[var(--color-border)] py-5">
         <Container className="flex items-center justify-between">
-          <a
+          <Link
             href="/"
             className="font-(family-name:--font-display) text-xl text-[var(--color-fg)]"
           >
             Tempoly
-          </a>
+          </Link>
           <nav className="flex items-center gap-6 text-sm">
             <a
               className="text-[var(--color-fg-muted)] hover:text-[var(--color-fg)]"
@@ -29,12 +30,12 @@ export default function LegalEcuadorPage() {
             >
               Manifesto
             </a>
-            <a
+            <Link
               className="text-[var(--color-fg-muted)] hover:text-[var(--color-fg)]"
               href="/#waitlist"
             >
               Sumarme
-            </a>
+            </Link>
           </nav>
         </Container>
       </header>

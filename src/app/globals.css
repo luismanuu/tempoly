@@ -1,5 +1,11 @@
 @import "tailwindcss";
 
+/* ───────────────────────────────────────────────────────────────
+   Tailwind theme tokens — retained for legacy routes
+   (/manifesto, /leaderboards) and the old UI component library.
+   The new retro-arcade landing (page.tsx) is built entirely in
+   plain CSS + CSS Modules and does NOT use these utilities.
+   ─────────────────────────────────────────────────────────────── */
 @theme {
   --color-bg: oklch(0.13 0 0);
   --color-bg-elev: oklch(0.16 0 0);
@@ -15,6 +21,44 @@
   --font-display: var(--font-fraunces), Georgia, serif;
   --font-sans: var(--font-geist), system-ui, sans-serif;
   --font-mono: var(--font-jetbrains), ui-monospace, monospace;
+}
+
+/* ───────────────────────────────────────────────────────────────
+   Retro-arcade landing — design tokens (Tempoly v3)
+   ─────────────────────────────────────────────────────────────── */
+:root {
+  /* Accent neons */
+  --accent-magenta: #ff3d9a;
+  --accent-cyan: #3de7e0;
+  --accent-lime: #c2ff4d;
+  --accent-amber: #ffc93d;
+
+  /* Surfaces */
+  --bg-deep: #080510;
+  --bg-panel: #0f0a1c;
+  --bg-elevated: #170f2b;
+
+  /* Borders */
+  --border-soft: #2a1e47;
+  --border-strong: #3d2c63;
+
+  /* Ink + text */
+  --ink-on-accent: #0a0613;
+  --text-primary: #f5f0ff;
+  --text-secondary: #b9add6;
+  --text-muted: #7e719c;
+
+  /* Type families (wired via next/font in layout.tsx) */
+  --font-pixel: var(--font-pixelify), "Courier New", monospace;
+  --font-body: var(--font-outfit), system-ui, sans-serif;
+  --font-tech: var(--font-jetbrains-mono), ui-monospace, monospace;
+
+  /* Z-index scale */
+  --z-sticky: 100;
+  --z-overlay: 200;
+
+  /* Motion */
+  --ease-out-quint: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 html,
@@ -33,4 +77,58 @@ body {
 ::selection {
   background: var(--color-success);
   color: var(--color-bg);
+}
+
+/* ── Shared keyframes for the retro-arcade landing ───────────── */
+@keyframes arcade-blink {
+  0%,
+  60% {
+    opacity: 1;
+  }
+  61%,
+  100% {
+    opacity: 0.15;
+  }
+}
+
+@keyframes arcade-scanline {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(100%);
+  }
+}
+
+@keyframes arcade-pulse-dot {
+  0%,
+  100% {
+    opacity: 1;
+    box-shadow: 0 0 0 0 currentColor;
+  }
+  50% {
+    opacity: 0.7;
+    box-shadow: 0 0 0 4px transparent;
+  }
+}
+
+@keyframes arcade-rocket {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
 }

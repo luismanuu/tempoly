@@ -1,0 +1,192 @@
+.section {
+  background: var(--bg-deep);
+  border-top: 1px solid var(--border-soft);
+}
+
+.inner {
+  width: min(100% - 2.5rem, 1200px);
+  margin-inline: auto;
+  padding-block: clamp(3rem, 7vw, 5.5rem);
+}
+
+.header {
+  max-width: 52ch;
+  margin-bottom: clamp(2rem, 4vw, 3rem);
+}
+
+.heading {
+  margin: 0;
+  font-family: var(--font-pixel);
+  font-weight: 700;
+  font-size: clamp(2rem, 5.5vw, 3.4rem);
+  line-height: 1.02;
+  letter-spacing: -0.01em;
+  color: var(--text-primary);
+  text-wrap: balance;
+}
+
+.sub {
+  margin: 0.85rem 0 0;
+  font-family: var(--font-body);
+  font-size: clamp(0.98rem, 1.4vw, 1.1rem);
+  line-height: 1.55;
+  color: var(--text-secondary);
+  text-wrap: pretty;
+}
+
+/* ── Asymmetric bento ────────────────────────────────────── */
+.bento {
+  display: grid;
+  gap: clamp(1rem, 2vw, 1.4rem);
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 720px) {
+  .bento {
+    grid-template-columns: repeat(5, 1fr);
+  }
+  /* Row 1: wide(3) + filled(2) ; Row 2: outline(2) + wide(3) */
+  .cell[data-variant="wide"]:nth-of-type(1) {
+    grid-column: span 3;
+  }
+  .cell[data-variant="filled"] {
+    grid-column: span 2;
+  }
+  .cell[data-variant="outline"] {
+    grid-column: span 2;
+  }
+  .cell[data-variant="wide"]:nth-of-type(4) {
+    grid-column: span 3;
+  }
+}
+
+.cell {
+  --c: var(--accent-cyan);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(1.5rem, 4vw, 2.75rem);
+  padding: clamp(1.5rem, 3vw, 2.1rem);
+  background: var(--bg-elevated);
+  border: 2px solid var(--border-strong);
+  overflow: hidden;
+  min-height: 200px;
+}
+
+.cell[data-accent="cyan"] {
+  --c: var(--accent-cyan);
+}
+.cell[data-accent="magenta"] {
+  --c: var(--accent-magenta);
+}
+.cell[data-accent="lime"] {
+  --c: var(--accent-lime);
+}
+.cell[data-accent="amber"] {
+  --c: var(--accent-amber);
+}
+
+/* Filled / inverted cell — color carries it */
+.cell[data-variant="filled"] {
+  background: var(--c);
+  border-color: var(--c);
+}
+
+/* Outline cell — transparent, accent border */
+.cell[data-variant="outline"] {
+  background: transparent;
+  border-color: var(--c);
+}
+
+.cellTop {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+
+.chip {
+  display: grid;
+  place-items: center;
+  width: 2.2rem;
+  height: 2.2rem;
+  background: var(--c);
+  color: var(--ink-on-accent);
+  box-shadow: 3px 3px 0 0 var(--ink-on-accent);
+}
+
+.cell[data-variant="filled"] .chip {
+  background: var(--ink-on-accent);
+  color: var(--c);
+  box-shadow: 3px 3px 0 0 color-mix(in srgb, var(--ink-on-accent) 40%, transparent);
+}
+
+.tag {
+  font-family: var(--font-tech);
+  font-weight: 700;
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  color: var(--c);
+}
+
+.cell[data-variant="filled"] .tag {
+  color: var(--ink-on-accent);
+}
+
+.cellText {
+  margin-top: auto;
+}
+
+.title {
+  margin: 0;
+  font-family: var(--font-pixel);
+  font-weight: 700;
+  font-size: clamp(1.5rem, 3.2vw, 2rem);
+  line-height: 1.05;
+  color: var(--text-primary);
+}
+
+.cell[data-variant="filled"] .title {
+  color: var(--ink-on-accent);
+}
+
+.body {
+  margin: 0.6rem 0 0;
+  max-width: 42ch;
+  font-family: var(--font-body);
+  font-size: clamp(0.95rem, 1.3vw, 1.02rem);
+  line-height: 1.55;
+  color: var(--text-secondary);
+}
+
+.cell[data-variant="filled"] .body {
+  color: color-mix(in srgb, var(--ink-on-accent) 82%, transparent);
+}
+
+/* decorative pixel run — only on the wide cells */
+.pixels {
+  position: absolute;
+  bottom: clamp(1.5rem, 3vw, 2.1rem);
+  right: clamp(1.5rem, 3vw, 2.1rem);
+  display: none;
+  gap: 0.35rem;
+}
+
+.cell[data-variant="wide"] .pixels {
+  display: flex;
+}
+
+.pixels span {
+  width: 0.7rem;
+  height: 0.7rem;
+  background: var(--c);
+}
+
+.pixels span:nth-child(2) {
+  opacity: 0.7;
+}
+.pixels span:nth-child(3) {
+  opacity: 0.45;
+}
+.pixels span:nth-child(4) {
+  opacity: 0.25;
+}
