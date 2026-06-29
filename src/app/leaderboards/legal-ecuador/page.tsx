@@ -32,9 +32,9 @@ export default function LegalEcuadorPage() {
             </a>
             <Link
               className="text-[var(--color-fg-muted)] hover:text-[var(--color-fg)]"
-              href="/#waitlist"
+              href="/#contacto"
             >
-              Sumarme
+              Hablemos
             </Link>
           </nav>
         </Container>

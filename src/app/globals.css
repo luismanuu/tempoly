@@ -63,8 +63,8 @@
 
 html,
 body {
-  background: var(--color-bg);
-  color: var(--color-fg);
+  background: var(--bg-deep);
+  color: var(--text-primary);
 }
 
 body {

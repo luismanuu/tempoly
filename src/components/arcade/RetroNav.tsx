@@ -6,7 +6,7 @@ export function RetroNav() {
   return (
     <header className={styles.header}>
       <div className={styles.inner}>
-        <Link href="#top" className={styles.brand} aria-label="Tempoly — inicio">
+        <Link href="/#top" className={styles.brand} aria-label="Tempoly — inicio">
           <span className={styles.brandMark} aria-hidden="true">
             T
           </span>

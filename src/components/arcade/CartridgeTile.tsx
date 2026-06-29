@@ -11,16 +11,17 @@ export type Project = {
   accent: "magenta" | "cyan" | "lime" | "amber";
   image: string;
   imageAlt: string;
-  /** When true, the screenshot is a styled placeholder, not a real capture. */
+  /** When true, the image is a styled placeholder, not a real capture. */
   placeholder?: boolean;
 };
 
+/** A project is live (clickable) when it has a real href. */
+export function isLive(project: Project): boolean {
+  return project.href !== "#";
+}
+
 export function CartridgeTile({ project }: { project: Project }) {
-  const live = project.href !== "#";
-  const commonProps = {
-    className: styles.tile,
-    "data-accent": project.accent,
-  } as const;
+  const live = isLive(project);
 
   const inner = (
     <>
@@ -43,10 +44,12 @@ export function CartridgeTile({ project }: { project: Project }) {
             <span className={styles.soon}>PRÓXIMAMENTE</span>
           )}
         </div>
-        <div className={styles.playHint} aria-hidden="true">
-          <span className={styles.playArrow}>▶</span>
-          <span className={styles.playText}>PRESS START</span>
-        </div>
+        {live ? (
+          <div className={styles.playHint} aria-hidden="true">
+            <span className={styles.playArrow}>▶</span>
+            <span className={styles.playText}>PRESS START</span>
+          </div>
+        ) : null}
       </div>
 
       <div className={styles.footer}>
@@ -54,17 +57,21 @@ export function CartridgeTile({ project }: { project: Project }) {
           <span className={styles.name}>{project.name}</span>
           <span className={styles.urlText}>{project.url}</span>
         </div>
-        <span className={styles.visit}>
-          {live ? "VISITAR" : "EN CAMINO"}
-          <span aria-hidden="true">↗</span>
-        </span>
+        {live ? (
+          <span className={styles.visit}>
+            VISITAR
+            <span aria-hidden="true">↗</span>
+          </span>
+        ) : (
+          <span className={styles.soonLabel}>En camino</span>
+        )}
       </div>
     </>
   );
 
   if (!live) {
     return (
-      <div {...commonProps} aria-disabled="true">
+      <div className={styles.tile} data-accent={project.accent} data-status="soon">
         {inner}
       </div>
     );
@@ -72,7 +79,8 @@ export function CartridgeTile({ project }: { project: Project }) {
 
   return (
     <a
-      {...commonProps}
+      className={styles.tile}
+      data-accent={project.accent}
       href={project.href}
       target="_blank"
       rel="noopener noreferrer"

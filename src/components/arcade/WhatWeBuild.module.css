@@ -45,18 +45,14 @@
   .bento {
     grid-template-columns: repeat(5, 1fr);
   }
-  /* Row 1: wide(3) + filled(2) ; Row 2: outline(2) + wide(3) */
-  .cell[data-variant="wide"]:nth-of-type(1) {
+  /* Row 1: wide(3) + filled(2) ; Row 2: outline(2) + wide(3).
+     Spans are keyed off the variant, not source order. */
+  .cell[data-variant="wide"] {
     grid-column: span 3;
   }
-  .cell[data-variant="filled"] {
-    grid-column: span 2;
-  }
+  .cell[data-variant="filled"],
   .cell[data-variant="outline"] {
     grid-column: span 2;
-  }
-  .cell[data-variant="wide"]:nth-of-type(4) {
-    grid-column: span 3;
   }
 }
 

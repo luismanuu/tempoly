@@ -39,8 +39,9 @@ a.tile:focus-visible {
   outline-offset: 3px;
 }
 
-.tile[aria-disabled="true"] {
+.tile[data-status="soon"] {
   cursor: default;
+  opacity: 0.92;
 }
 
 /* ── Visual / screenshot ─────────────────────────────────── */
@@ -178,6 +179,11 @@ a.tile:focus-visible .playHint {
   color: var(--c);
 }
 
-.tile[aria-disabled="true"] .visit {
+.soonLabel {
+  flex-shrink: 0;
+  font-family: var(--font-tech);
+  font-weight: 700;
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
   color: var(--text-muted);
 }

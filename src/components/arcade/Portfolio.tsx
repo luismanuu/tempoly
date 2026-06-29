@@ -1,4 +1,4 @@
-import { CartridgeTile, type Project } from "./CartridgeTile";
+import { CartridgeTile, isLive, type Project } from "./CartridgeTile";
 import styles from "./Portfolio.module.css";
 
 const PROJECTS: Project[] = [
@@ -19,12 +19,15 @@ const PROJECTS: Project[] = [
     tag: "WEB",
     accent: "magenta",
     image: "/portfolio/darkperformance.png",
-    imageAlt: "DarkPerformance: sitio en construcción, vista previa próximamente",
+    imageAlt:
+      "DarkPerformance: cartucho de marcador de posición con un triángulo de play y la etiqueta «Próximamente»",
     placeholder: true,
   },
 ];
 
 export function Portfolio() {
+  const liveCount = PROJECTS.filter(isLive).length;
+
   return (
     <section className={styles.section} id="proyectos">
       <div className={styles.inner}>
@@ -40,7 +43,7 @@ export function Portfolio() {
             <span className={styles.counterDot} aria-hidden="true">
               ●
             </span>
-            2 EN VIVO · MÁS PRONTO
+            {liveCount} EN VIVO · MÁS PRONTO
           </span>
         </div>
 

@@ -75,7 +75,15 @@ export default function RootLayout({
       lang="es"
       className={`${pixelify.variable} ${outfit.variable} ${jetbrainsMonoNew.variable} ${fraunces.variable} ${geist.variable} ${jetbrainsMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col bg-bg text-fg">{children}</body>
+      <body
+        className="min-h-full flex flex-col"
+        style={{
+          background: "var(--bg-deep)",
+          color: "var(--text-primary)",
+        }}
+      >
+        {children}
+      </body>
     </html>
   );
 }

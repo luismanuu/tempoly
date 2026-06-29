@@ -31,9 +31,9 @@ export default function ManifestoPage() {
             </a>
             <Link
               className="text-[var(--color-fg-muted)] hover:text-[var(--color-fg)]"
-              href="/#waitlist"
+              href="/#contacto"
             >
-              Sumarme
+              Hablemos
             </Link>
           </nav>
         </Container>
@@ -67,10 +67,10 @@ export default function ManifestoPage() {
 
               <div className="mt-12 flex flex-wrap gap-4">
                 <Link
-                  href="/#waitlist"
+                  href="/#contacto"
                   className="inline-flex items-center gap-2 bg-[var(--color-success)] px-6 py-3 font-(family-name:--font-mono) text-[0.78rem] uppercase tracking-[0.16em] text-[var(--color-bg)]"
                 >
-                  Sumarme a la lista →
+                  Cuéntanos tu idea →
                 </Link>
                 <a
                   href="/leaderboards/legal-ecuador"

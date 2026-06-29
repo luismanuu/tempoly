@@ -27,10 +27,10 @@ export function ClosingCta() {
             Cuéntanos tu idea
             <span aria-hidden="true">▶</span>
           </a>
-          <a href={CONTACT_HREF} className={styles.mail}>
+          <p className={styles.mail}>
             <span aria-hidden="true">✉</span>
             {CONTACT_EMAIL}
-          </a>
+          </p>
         </div>
       </div>
     </section>
