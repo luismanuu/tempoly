@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Container } from "@/components/ui/Container";
 import { Display } from "@/components/ui/Display";
 import { Mono } from "@/components/ui/Mono";
@@ -15,12 +16,12 @@ export default function ManifestoPage() {
     <>
       <header className="border-b border-[var(--color-border)] py-5">
         <Container className="flex items-center justify-between">
-          <a
+          <Link
             href="/"
             className="font-(family-name:--font-display) text-xl text-[var(--color-fg)]"
           >
             Tempoly
-          </a>
+          </Link>
           <nav className="flex items-center gap-6 text-sm">
             <a
               className="text-[var(--color-fg-muted)] hover:text-[var(--color-fg)]"
@@ -28,12 +29,12 @@ export default function ManifestoPage() {
             >
               Leaderboard
             </a>
-            <a
+            <Link
               className="text-[var(--color-fg-muted)] hover:text-[var(--color-fg)]"
-              href="/#waitlist"
+              href="/#contacto"
             >
-              Sumarme
-            </a>
+              Hablemos
+            </Link>
           </nav>
         </Container>
       </header>
@@ -65,12 +66,12 @@ export default function ManifestoPage() {
               </p>
 
               <div className="mt-12 flex flex-wrap gap-4">
-                <a
-                  href="/#waitlist"
+                <Link
+                  href="/#contacto"
                   className="inline-flex items-center gap-2 bg-[var(--color-success)] px-6 py-3 font-(family-name:--font-mono) text-[0.78rem] uppercase tracking-[0.16em] text-[var(--color-bg)]"
                 >
-                  Sumarme a la lista →
-                </a>
+                  Cuéntanos tu idea →
+                </Link>
                 <a
                   href="/leaderboards/legal-ecuador"
                   className="inline-flex items-center gap-2 border border-[var(--color-border-strong)] px-6 py-3 font-(family-name:--font-mono) text-[0.78rem] uppercase tracking-[0.16em] text-[var(--color-fg)] hover:border-[var(--color-fg)]"
